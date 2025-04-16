@@ -4,7 +4,7 @@ A fork of postgres source and corresponding docker setups with root-checks disab
 be used more conveniently and securely in rootless container setups, where the container user is
 usually root, but mapped to the non-root host user.
 
-**Don't use this, if you don't know what you're doing!**
+**DON'T USE THIS, IF YOU DON'T KNOW WHAT YOU'RE DOING!**
 
 Postgres has been hard-coded to not be run by the root user. While this generally makes perfect
 sense security-wise, it becomes problematic in containerized environments, where within the
@@ -24,14 +24,14 @@ https://github.com/SteffRhes/postgres_rooted/commit/52fea3f272a2f6fa3d50456d2a3a
 
 To build a docker image which is as close as possible to the official postgres one, the
 corresponding Dockerfile and related scripts were fetched from:
-https://github.com/docker-library/postgres/tree/master/17/bookworm and modified where there were
-user-specific instructions. Additionally, the official Dockerfile would install or build apt 
-packages from the official postgres mirror at: http://apt.postgresql.org/pub/repos/apt/ . This 
-major part of the Dockerfile was completely removed, since the modified Dockerfile had to build from
-the modified source code of this repo. Thus, the apt related install / build section was replaced
-entirely with building instructions as provided at the official postgres website: 
-https://www.postgresql.org/docs/17/install-make.html
-The changes between the official docker files and the modified versions can be inspected here: 
+https://github.com/docker-library/postgres/tree/cc254e85ed86e1f8c9052f9cbf0e3320324f0421/17/bookworm
+and modified where there were user-specific instructions. Additionally, the official Dockerfile
+would install or build apt packages from the official postgres mirror at:
+http://apt.postgresql.org/pub/repos/apt/ . This major part of the Dockerfile was completely removed,
+since the modified Dockerfile had to build from the modified source code of this repo. Thus, the apt
+related install / build section was replaced entirely with building instructions as provided at the
+official postgres website: https://www.postgresql.org/docs/17/install-make.html The changes between
+the official docker files and the modified versions can be inspected here:
 https://github.com/SteffRhes/postgres_rooted/commit/6299e4b67bd2be02936ea06d5b00bf7d55e712b6
 
 PostgreSQL Database Management System
