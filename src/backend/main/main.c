@@ -381,14 +381,14 @@ static void
 check_root(const char *progname)
 {
 #ifndef WIN32
-	if (geteuid() == 0)
-	{
-		write_stderr("\"root\" execution of the PostgreSQL server is not permitted.\n"
-					 "The server must be started under an unprivileged user ID to prevent\n"
-					 "possible system security compromise.  See the documentation for\n"
-					 "more information on how to properly start the server.\n");
-		exit(1);
-	}
+	//if (geteuid() == 0)
+	//{
+	//	write_stderr("\"root\" execution of the PostgreSQL server is not permitted.\n"
+	//				 "The server must be started under an unprivileged user ID to prevent\n"
+	//				 "possible system security compromise.  See the documentation for\n"
+	//				 "more information on how to properly start the server.\n");
+	//	exit(1);
+	//}
 
 	/*
 	 * Also make sure that real and effective uids are the same. Executing as
@@ -398,12 +398,12 @@ check_root(const char *progname)
 	 * trying to actively fix this situation seems more trouble than it's
 	 * worth; we'll just expend the effort to check for it.)
 	 */
-	if (getuid() != geteuid())
-	{
-		write_stderr("%s: real and effective user IDs must match\n",
-					 progname);
-		exit(1);
-	}
+	//if (getuid() != geteuid())
+	//{
+	//	write_stderr("%s: real and effective user IDs must match\n",
+	//				 progname);
+	//	exit(1);
+	//}
 #else							/* WIN32 */
 	if (pgwin32_is_admin())
 	{

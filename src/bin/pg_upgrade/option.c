@@ -101,8 +101,8 @@ parseCommandLine(int argc, char *argv[])
 	}
 
 	/* Allow help and version to be run as root, so do the test here. */
-	if (os_user_effective_id == 0)
-		pg_fatal("%s: cannot be run as root", os_info.progname);
+	//if (os_user_effective_id == 0)
+	//	pg_fatal("%s: cannot be run as root", os_info.progname);
 
 	while ((option = getopt_long(argc, argv, "b:B:cd:D:j:kNo:O:p:P:rs:U:v",
 								 long_options, &optindex)) != -1)

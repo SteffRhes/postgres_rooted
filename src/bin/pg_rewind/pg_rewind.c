@@ -277,13 +277,13 @@ main(int argc, char **argv)
 	 * the data directory.
 	 */
 #ifndef WIN32
-	if (geteuid() == 0)
-	{
-		pg_log_error("cannot be executed by \"root\"");
-		pg_log_error_hint("You must run %s as the PostgreSQL superuser.",
-						  progname);
-		exit(1);
-	}
+	//if (geteuid() == 0)
+	//{
+	//	pg_log_error("cannot be executed by \"root\"");
+	//	pg_log_error_hint("You must run %s as the PostgreSQL superuser.",
+	//					  progname);
+	//	exit(1);
+	//}
 #endif
 
 	get_restricted_token();
