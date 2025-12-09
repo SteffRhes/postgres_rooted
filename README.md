@@ -8,11 +8,11 @@ usually root, but mapped to the non-root host user.
 
 Postgres has been hard-coded to not be run by the root user. While this generally makes perfect
 sense security-wise, it becomes problematic in containerized environments, where within the
-container, the main user is root, but which is actually mapped to the host non-root user via user
-namespaces. This can be the case in rootless docker setups or with podman by default. In such
-setups, sharing volumes between the host and the container leads to conflicts, because the shared
-files have conflicting uids. Working around this issue is difficult and might require shared groups
-between host and container, matching guids, or chmodding / chowning the host folder. All cumbersome.
+container, the main user usually is root, being mapped to the non-root host user, usually in rootless 
+docker setups or with podman by default. In such setups, sharing volumes between the host and the 
+container leads to conflicts, because the shared files have conflicting owner uids. Working around this 
+issue is difficult and might require shared groups between host and container, matching guids, or 
+chmodding / chowning the host folder. All cumbersome; hence this fork.
 
 ## changes to upstream repo
 
